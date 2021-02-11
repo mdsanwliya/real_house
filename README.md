@@ -1,27 +1,25 @@
-# real_house
-Your application manage real estate that have several types of assets.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Real House  
 
-Things you may want to cover:
+> Application manage real estate that several types of assets, we have
+> display them.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
->>>>>>> Initial commit
->>>>>>> Initial commit
+  
+  
+ #### Ruby version
+ -2.6.6  
+#### System Dependencies Installation  
+- `sudo apt install redis-server`
+- `sudo systemctl restart redis.service`
+  
+#### General Installation workflow  
+- use ruby-2.6.6  
+- `bundle install`  
+- `bundle exec rake db:create db:migrate`
+  
+#### For running the application  
+> First we need to run Sidekiq  
+- `bundle exec sidekiq`  
+  
+> Then launch the server  on other terminal/terminal tab
+`rails server` 

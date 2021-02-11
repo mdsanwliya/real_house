@@ -60,7 +60,16 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.active_job.queue_adapter = :sidekiq
   config.action_mailer.delivery_method = :smtp
-  host = 'localhost:3001'
-  config.action_mailer.default_url_options = { :host => 'localhost:3001', protocol: 'http' }
+  config.action_mailer.default_url_options = {:host =>'localhost:3000'}
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    authetication: :plain,
+    enable_starttls_auto: true,
+    user_name: ENV['EMAIL'],
+    password: ENV['PASSWORD']
+  }
 
 end
