@@ -1,0 +1,31 @@
+<div class="col-md-12">
+	<h1>Show Asset</h1>
+	<ul>
+		<li><strong>Owner:</strong> <%= @asset.user.name %></li>
+		<li><strong>Address:</strong> <%= @asset.address %></li>
+		<li><strong>Sqmt:</strong> <%= @asset.sqmt %></li>
+		<li><strong>Price:</strong> <%= @asset.price %></li>
+		<% if @asset.type.eql?('House')%>
+			<li><strong>Rooms:</strong> <%= @asset.rooms %></li>
+			<li><strong>Floors:</strong> <%= @asset.floors %></li>
+			<li><strong>AC:</strong> <%= @asset.air_cond ? 'Yes' : 'No' %></li>
+		<% end %>
+		<% if @asset.type.eql?('ComplexBuilding')%>
+			<li><strong>Units:</strong> <%= @asset.units %></li>
+		<% end %>
+		<% if @asset.type.eql?('CommecialUnit')%>
+			<li><strong>Shops:</strong> <%= @asset.shops %></li>
+			<li><strong>Parking:</strong> <%= @asset.parking %></li>
+		<% end%>
+		<li><strong>Images:</strong>
+			<% @asset.photos.each do |photo|  %>
+		    <div>
+		      <%= link_to photo.image.url do%>
+		        <%= photo.image_file_name %>
+		      <% end %>
+		    </div>
+		  <% end %>
+		</li>
+	</ul>
+	<%= link_to "Back", root_path %>
+</div>
